@@ -1,0 +1,36 @@
+#
+# apt proxy list, read by /usr/local/sbin/apt-proxy-probe.sh
+#
+# one entry per line, each is a host:port URL fragment of an apt caching proxy
+# lines beginning with # or consisting solely of whitespace are ignored
+#
+# examples:
+#
+# by hostname:
+#   proxy.lan:3142
+#
+# by ipv4 address:
+#   192.168.1.10:3142
+#
+# by ipv6 address:
+#   [dead:beef::1]:3142
+#
+# etc...
+#
+# ipv6 addresses must be bracketed per RFC2732
+# https://www.ietf.org/rfc/rfc2732.txt
+#
+
+#- tests
+# this is a comment
+  # this is a comment with leading whitespace
+# this is a comment with trailing whitespace				
+# these lines are whitespace
+	 	
+  
+		
+#- end tests
+
+# proxies:
+apt-cache.lan:3142
+apt-cache.local:3142

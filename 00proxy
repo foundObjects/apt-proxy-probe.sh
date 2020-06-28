@@ -1,0 +1,27 @@
+//Debug::Acquire::http "true";
+//Debug::Acquire::https "true";
+
+Acquire {
+  http {
+    Proxy-Auto-Detect "/usr/local/sbin/apt-proxy-probe.sh";
+    Pipeline-Depth "15";
+  };
+  https {
+    ConnectionAttemptDelayMsec "250";
+    Timeout "10";
+  };
+};
+
+// bypass caching for individual https repos
+//Acquire::https {
+//  Proxy {
+//    "download.docker.com" "DIRECT";
+//    "packages.graylog2.org" "DIRECT";
+//    "graylog2-package-repository.s3.amazonaws.com" "DIRECT";
+//  };
+//};
+
+// bypass single repo
+//Acquire::https::Proxy { "download.docker.com" "DIRECT"; };
+
+// vim:ft=aptconf:syntax=aptconf:ts=2:sts=2:sw=2:et:
