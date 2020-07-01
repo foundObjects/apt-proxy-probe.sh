@@ -1,6 +1,6 @@
 # apt-proxy-probe.sh
-apt-proxy-probe.sh is a simple proxy probe script for APT, given a plaintext list of proxy service URLs
-(`/etc/apt/proxies.list`) the script probes for available proxies at APT runtime and uses the first found. If no
+apt-proxy-probe.sh is a simple proxy probe script for APT. Given a plaintext list of proxy service URLs
+in `/etc/apt/proxies.list` the script probes for available proxies at APT runtime and uses the first found. If no
 configured proxy is available the probe script allows APT to transparently fall back to a direct connection to the
 package repository.
 
@@ -8,7 +8,7 @@ This is useful if you're using a machine (laptop) that frequently switches netwo
 reliably when a proxy service may not be 100% available. This also allows seamless failover to backup proxies in case
 the primary is offline.
 
-### dependencies:
+### dependencies
 Openbsd netcat required for ipv6 support; the script should function with traditional netcat on ipv4 only networks but
 this is untested. Be aware: `netcat-openbsd` is the default on Ubuntu 18.04+(?), Debian defaults to `netcat-traditional`
 as of Buster. If you have problems finding your proxies in a mixed ipv4/6 environment switch to `netcat-openbsd` first.
@@ -45,3 +45,7 @@ To debug problems connecting with APT edit `/etc/apt/apt.conf.d/00proxy` and unc
 
 If you think you've found a bug please upload both the `bash -x` script run and the full output of APT with http(s)
 debugging enabled as a gist and link them in your issue.
+
+### project source & contact
+
+https://github.com/foundObjects/apt-proxy-probe.sh

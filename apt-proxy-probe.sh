@@ -1,4 +1,5 @@
 #!/bin/bash
+# source: https://github.com/foundObjects/apt-proxy-probe.sh
 
 # we may need extra time to resolve proxy hostnames on the first attempt per apt run
 # subsequent queries are cached and should return immediately

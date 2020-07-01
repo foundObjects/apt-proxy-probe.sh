@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=SC2064
 set -e
 
 cleanupold="true"
@@ -32,24 +33,25 @@ _install() {
     rm -f /usr/local/bin/apt-proxy-detect.sh /usr/local/sbin/apt-proxy-detect.sh &&
     echo " OK"
   fi
-  echo -n "Installing APT proxy-probe ..."
+  echo -n "Installing APT proxy-probe ... "
   trap "$rmcmd; echo 'Failed :('" EXIT
   install -o root -m 0644 00proxy /etc/apt/apt.conf.d/00proxy
   install -o root -m 0644 proxies.list /etc/apt/proxies.list
   install -o root -m 0755 apt-proxy-probe.sh /usr/local/sbin/apt-proxy-probe.sh
   trap - EXIT
-  echo " Success!"
+  echo "Success!"
   echo
   echo "Installation complete, don't forget to edit /etc/apt/proxies.list to include your proxies."
 }
 
 _uninstall() {
-  echo "Removing APT proxy-probe ..."
-  echo
-  trap "Failed :(" EXIT
+  echo -n "Removing APT proxy-probe ... "
+  trap "echo 'Failed :('" EXIT
   $rmcmd
   trap - EXIT
-  echo "Success! APT proxy-probe removed"
+  echo "Success!"
+  echo
+  echo "APT proxy-probe removed"
 }
 
 assert_root() { [ "$(id -u)" -eq '0' ] || { echo "This action requires root." && exit 1; }; }
