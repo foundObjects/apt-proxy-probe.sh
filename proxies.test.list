@@ -21,6 +21,17 @@
 # https://www.ietf.org/rfc/rfc2732.txt
 #
 
+#- tests
+# this is a comment
+  # this is a comment with leading whitespace
+# this is a comment with trailing whitespace				
+# these lines are whitespace
+	 	
+apt-cache.lan:3142    # this tests comments @ EOL
+  
+		
+#- end tests
+
 # proxies:
 apt-cache.lan:3142
 apt-cache.local:3142
